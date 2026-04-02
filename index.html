@@ -5,341 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Supervetro | Qualidade Superior em Vidros e Esquadrias</title>
     <style>
-        /* Reset e Estilos Gerais */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        :root {
-            --primary: #004aad; 
-            --secondary: #f4f4f4;
-            --accent: #00d2ff;
-            --dark: #1a1a1a;
-        }
-
-        /* Header */
-        header {
-            background: #fff;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-text {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: var(--primary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #333;
-            margin-left: 20px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 90vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            color: #fff;
-            padding: 0 20px;
-            margin-top: 60px;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-        }
-
-        .hero p {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            max-width: 800px;
-            font-weight: 300;
-        }
-
-        .hero-tags {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .tag {
-            background: rgba(255,255,255,0.1);
-            padding: 5px 15px;
-            border-radius: 20px;
-            border: 1px solid var(--accent);
-            font-size: 0.9rem;
-        }
-
-        .btn {
-            background: var(--primary);
-            color: #fff;
-            padding: 15px 40px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-weight: bold;
-            transition: all 0.3s;
-            display: inline-block;
-            text-transform: uppercase;
-        }
-
-        .btn:hover {
-            background: var(--accent);
-            transform: scale(1.05);
-        }
-
-        /* Seções */
-        section {
-            padding: 100px 10%;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary);
-            margin-bottom: 10px;
-        }
-
-        .section-title span {
-            color: #777;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-        }
-
-        /* Serviços com Espaço para Fotos */
-        .grid-services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 40px;
-        }
-
-        .card {
-            background: #fff;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            border-bottom: 4px solid var(--primary);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-        }
-
-        .card-img {
-            height: 200px;
-            background: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
-        }
-
-        .card-content {
-            padding: 25px;
-        }
-
-        .card h3 {
-            margin-bottom: 15px;
-            color: var(--primary);
-            font-size: 1.4rem;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        /* Diferenciais Técnicos */
-        .tech-specs {
-            background: var(--secondary);
-        }
-
-        .specs-list {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .spec-item {
-            background: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            text-align: center;
-        }
-
-        /* Rodapé */
-        footer {
-            background: var(--dark);
-            color: #fff;
-            text-align: center;
-            padding: 60px 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.2rem; }
-            nav { display: none; } 
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { line-height: 1.6; color: #333; scroll-behavior: smooth; }
+        :root { --primary: #004aad; --secondary: #f4f4f4; --accent: #00d2ff; --dark: #1a1a1a; }
+        header { background: #fff; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .logo-text { font-size: 1.5rem; font-weight: bold; color: var(--primary); text-transform: uppercase; }
+        nav a { text-decoration: none; color: #333; margin-left: 20px; font-weight: 500; }
+        .hero { height: 90vh; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: #fff; padding: 0 20px; margin-top: 60px; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; text-transform: uppercase; }
+        .hero-tags { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; justify-content: center; }
+        .tag { background: rgba(255,255,255,0.1); padding: 5px 15px; border-radius: 20px; border: 1px solid var(--accent); font-size: 0.9rem; }
+        .btn { background: var(--primary); color: #fff; padding: 15px 40px; text-decoration: none; border-radius: 5px; font-weight: bold; transition: 0.3s; display: inline-block; }
+        .btn:hover { background: var(--accent); transform: scale(1.05); }
+        section { padding: 80px 10%; }
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .card { background: #fff; border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-bottom: 4px solid var(--primary); }
+        .card-content { padding: 25px; }
+        .tech-specs { background: var(--secondary); text-align: center; }
+        .specs-list { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; margin-top: 30px; }
+        .spec-item { background: #fff; padding: 20px; border-radius: 5px; min-width: 200px; }
+        footer { background: var(--dark); color: #fff; text-align: center; padding: 40px 0; }
+        @media (max-width: 768px) { .hero h1 { font-size: 2.2rem; } nav { display: none; } }
     </style>
 </head>
 <body>
-
     <header>
-        <div class="logo-container">
-            <div class="logo-text">SUPER VETRO</div>
-        </div>
+        <div class="logo-text">SUPER VETRO</div>
         <nav>
             <a href="#inicio">Início</a>
             <a href="#servicos">Serviços</a>
-            <a href="#diferenciais">Diferenciais</a>
             <a href="#contato">Contato</a>
         </nav>
     </header>
 
     <section id="inicio" class="hero">
         <div class="hero-tags">
-            <span class="tag">Esquadrias Minimalistas</span>
-            <span class="tag">Esquadrias Acústicas</span>
-            <span class="tag">Structural Glazing</span>
+            <span class="tag">Esquadrias Minimalistas</span> [cite: 1]
+            <span class="tag">Esquadrias Acústicas</span> [cite: 1]
+            <span class="tag">Structural Glazing</span> [cite: 1]
         </div>
         <h1>Qualidade Superior em Vidros</h1>
-        <p>Fornecimento, confecção e instalação de esquadrias de alumínio de alto padrão em conformidade com as normas ABNT.</p>
-        <a href="#contato" class="btn">Solicitar Proposta Técnica</a>
+        <p>Fornecimento, confecção e instalação de esquadrias em conformidade com as normas ABNT[cite: 3, 23].</p>
+        <a href="https://wa.me/5571993976185" class="btn">Solicitar Orçamento</a>
     </section>
 
     <section id="servicos">
-        <div class="section-title">
-            <span>O que fazemos</span>
-            <h2>Serviços Especializados</h2>
-        </div>
+        <h2 style="text-align: center; margin-bottom: 40px; color: var(--primary);">Serviços Especializados</h2>
         <div class="grid-services">
             <div class="card">
-                <div class="card-img">
-                    [Espaço para foto de Esquadrias]
-                </div>
                 <div class="card-content">
-                    <h3>Esquadrias Minimalistas</h3>
-                    <p>Design moderno com perfis bi-tubulares e máxima transparência para projetos arquitetônicos de luxo.</p>
+                    <h3>Esquadrias de Alumínio</h3>
+                    <p>Perfis bi-tubulares com acabamentos variados conforme o projeto[cite: 6, 10].</p>
                 </div>
             </div>
             <div class="card">
-                <div class="card-img">[Espaço para foto de Acústica]</div>
-                <div class="card-content">
-                    <h3>Soluções Acústicas</h3>
-                    <p>Conforto sonoro com vedação em EPDM e componentes de alta performance para redução de ruídos.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">[Espaço para foto de Glazing]</div>
-                <div class="card-content">
-                    <h3>Structural Glazing</h3>
-                    <p>Fachadas "pele de vidro" com fixação oculta, garantindo estética limpa e segurança estrutural.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-img">[Espaço para foto de Recuperação]</div>
                 <div class="card-content">
                     <h3>Recuperação de Vedação</h3>
-                    <p>Manutenção especializada e substituição de selantes para garantir a estanqueidade da sua obra.</p>
+                    <p>Manutenção e vedação técnica para garantir a estanqueidade[cite: 35].</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-content">
+                    <h3>Componentes Inox</h3>
+                    <p>Uso de parafusos em Aço Inox 304 e guarnições EPDM[cite: 11].</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="diferenciais" class="tech-specs">
-        <div class="section-title">
-            <span>Padrão Supervetro</span>
-            <h2>Garantia e Especificações</h2>
-        </div>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 40px;">Trabalhamos rigorosamente dentro das normas <strong>NBR 14698, 7199 e 16259</strong>, utilizando parafusos em Aço Inox 304 e silicone de cura neutra.</p>
+    <section class="tech-specs">
+        <h2>Garantias e Normas</h2>
         <div class="specs-list">
-            <div class="spec-item">
-                <strong>5 ANOS</strong> de garantia nos perfis
-            </div>
-            <div class="spec-item">
-                <strong>1 ANO</strong> em componentes
-            </div>
-            <div class="spec-item">
-                <strong>Inox 304</strong> e EPDM
-            </div>
-            <div class="spec-item">
-                <strong>IPI Incluso</strong> nas propostas
-            </div>
+            <div class="spec-item"><strong>5 ANOS</strong> de garantia nos perfis [cite: 20]</div>
+            <div class="spec-item"><strong>1 ANO</strong> em componentes [cite: 21]</div>
+            <div class="spec-item">Normas NBR 14698 / 7199 [cite: 23]</div>
         </div>
     </section>
 
-    <section id="contato">
-        <div class="section-title">
-            <h2>Fale Conosco</h2>
-            <p>Atendimento em Salvador e região metropolitana.</p>
-        </div>
-        <div style="text-align: center; font-size: 1.1rem; line-height: 2;">
-            <p><strong>📍 Endereço:</strong> Alameda 02 - Três Mangueiras, nº 33, Canabrava<br>Salvador - BA, 41260-280</p>
-            <p><strong>📧 E-mail:</strong> supervetro.ssa@gmail.com</p>
-            <p><strong>📞 Telefone:</strong> (71) 99397-6185</p>
-            <br>
-            <a href="https://wa.me/5571993976185" target="_blank" class="btn" style="background-color: #25d366;">Orçamento via WhatsApp</a>
-        </div>
+    <section id="contato" style="text-align: center;">
+        <h2>Fale Conosco</h2>
+        <p>📍 Alameda 02 - Três Mangueiras, nº 33, Canabrava - Salvador/BA </p>
+        <p>📧 supervetro.ssa@gmail.com | 📞 (71) 99397-6185</p>
+        <br>
+        <a href="https://wa.me/5571993976185" class="btn" style="background: #25d366;">WhatsApp</a>
     </section>
 
     <footer>
-        <p><strong>SUPER VETRO</strong> - Qualidade Superior em Vidros</p>
-        <p><small>&copy; 2026. Salvador, Bahia.</small></p>
+        <p>SUPER VETRO - Qualidade Superior em Vidros [cite: 25]</p>
     </footer>
-
-</body>
-</html>
-    </footer>
-
-
 </body>
 </html>
