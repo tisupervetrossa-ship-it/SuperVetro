@@ -1,321 +1,1269 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Super Vetro | Qualidade Superior em Vidros e Esquadrias</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        body { line-height: 1.6; color: #333; scroll-behavior: smooth; }
-        :root { 
-            --primary: #004aad; 
-            --secondary: #f8f9fa; 
-            --accent: #00d2ff; 
-            --dark: #1a1a1a; 
-            --success: #25d366;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Super Vetro | Esquadrias de Alumínio para Projetos de Alto Padrão</title>
+  <meta
+    name="description"
+    content="Esquadrias de alumínio, soluções acústicas, fabricação sob medida e instalação especializada para projetos residenciais e corporativos de alto padrão."
+  />
 
-        header { 
-            background: #fff; 
-            padding: 1rem 5%; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1); 
-        }
-        
-        .logo { 
-            font-size: 1.8rem; 
-            font-weight: bold; 
-            color: var(--primary); 
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-        
-        nav { display: flex; gap: 30px; }
-        nav a { 
-            text-decoration: none; 
-            color: #333; 
-            font-weight: 500; 
-            transition: 0.3s;
-            position: relative;
-        }
-        nav a:hover { color: var(--primary); }
-        nav a::after {
-            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px; background: var(--primary); transition: 0.3s;
-        }
-        nav a:hover::after { width: 100%; }
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
 
-        .hero { 
-            height: 100vh; 
-            background: linear-gradient(rgba(0,74,173,0.85), rgba(0,74,173,0.85)), 
-                        url('https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?auto=format&fit=crop&w=1350&q=80'); 
-            background-size: cover; 
-            background-position: center; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            text-align: center; 
-            color: #fff; 
-            padding: 0 20px; 
-        }
-        
-        .hero h1 { 
-            font-size: clamp(2.5rem, 5vw, 4rem); 
-            margin-bottom: 1.5rem; 
-            text-transform: uppercase;
-            letter-spacing: 3px;
-        }
-        
-        .hero-subtitle {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            max-width: 600px;
-        }
-        
-        .hero-tags { 
-            display: flex; 
-            gap: 15px; 
-            margin-bottom: 2.5rem; 
-            flex-wrap: wrap; 
-            justify-content: center; 
-        }
-        .tag { 
-            background: rgba(255,255,255,0.2); 
-            padding: 8px 20px; 
-            border-radius: 25px; 
-            font-size: 0.9rem; 
-            backdrop-filter: blur(10px);
-        }
-        
-        .btn { 
-            background: var(--primary); 
-            color: #fff; 
-            padding: 18px 45px; 
-            text-decoration: none; 
-            border-radius: 50px; 
-            font-weight: bold; 
-            font-size: 1.1rem;
-            transition: all 0.3s; 
-            display: inline-block;
-            box-shadow: 0 5px 15px rgba(0,74,173,0.3);
-        }
-        .btn:hover { 
-            background: var(--accent); 
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,74,173,0.4);
-        }
-        .btn-whatsapp { background: var(--success); }
-        .btn-whatsapp:hover { background: #128c7e; }
+  <style>
+    :root{
+      --bg:#11161c;
+      --bg-soft:#171d24;
+      --bg-deep:#0c1117;
+      --graphite:#1f2329;
+      --aluminum:#8f98a3;
+      --silver:#c8cdd3;
+      --ice:#f5f7f8;
+      --glass:#6fafc7;
+      --glass-soft:#8dc1d3;
+      --text:#f5f7f8;
+      --muted:#a7b0ba;
+      --line:rgba(255,255,255,.10);
+      --surface:rgba(255,255,255,.045);
+      --surface-strong:rgba(255,255,255,.07);
+      --shadow:0 30px 80px rgba(0,0,0,.35);
+      --radius:24px;
+      --container:1200px;
+      --header-h:88px;
+    }
 
-        section { padding: 100px 5%; }
-        .container { max-width: 1200px; margin: 0 auto; }
-        
-        h2 { 
-            text-align: center; 
-            font-size: 2.5rem; 
-            color: var(--primary); 
-            margin-bottom: 3rem;
-            position: relative;
-        }
-        h2::after {
-            content: ''; display: block; width: 80px; height: 4px; background: var(--accent); margin: 20px auto;
-        }
-        
-        .grid-services { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
-            gap: 40px; 
-        }
-        
-        .card { 
-            background: #fff; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
-            transition: all 0.4s;
-            border-top: 5px solid var(--primary);
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
-        }
-        .card-icon {
-            height: 80px;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-        }
-        .card-content { padding: 30px; }
-        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 1.4rem; }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
 
-        .tech-specs { 
-            background: linear-gradient(135deg, var(--secondary), #e9ecef); 
-            text-align: center; 
-        }
-        .specs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
-        .spec-item { 
-            background: #fff; 
-            padding: 30px 20px; 
-            border-radius: 15px; 
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-left: 5px solid var(--primary);
-        }
-        .spec-highlight { font-size: 2rem; font-weight: bold; color: var(--primary); display: block; }
+    html{
+      scroll-behavior:smooth;
+    }
 
-        .contact-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin: 40px 0;
-            text-align: left;
-        }
-        .contact-item {
-            background: #fff;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-        .contact-icon { font-size: 2.5rem; color: var(--primary); margin-bottom: 15px; }
+    body{
+      font-family:'Inter', sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(111,175,199,.13), transparent 28%),
+        radial-gradient(circle at top right, rgba(200,205,211,.07), transparent 20%),
+        linear-gradient(180deg, #0e1319 0%, #10161d 35%, #0b1016 100%);
+      line-height:1.6;
+      overflow-x:hidden;
+    }
 
-        footer { 
-            background: var(--dark); 
-            color: #fff; 
-            text-align: center; 
-            padding: 40px 5%; 
-        }
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
 
-        @media (max-width: 768px) { 
-            header { padding: 1rem 5%; flex-direction: column; gap: 15px; }
-            nav { gap: 20px; flex-wrap: wrap; justify-content: center; }
-            .hero { padding-top: 80px; height: 90vh; }
-            section { padding: 60px 5%; }
-            .grid-services, .specs-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    img{
+      max-width:100%;
+      display:block;
+    }
+
+    .container{
+      width:min(var(--container), calc(100% - 48px));
+      margin:0 auto;
+    }
+
+    .section{
+      padding:110px 0;
+      position:relative;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      font-size:.76rem;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:var(--glass-soft);
+      margin-bottom:18px;
+      font-weight:600;
+    }
+
+    .eyebrow::before{
+      content:"";
+      width:34px;
+      height:1px;
+      background:linear-gradient(90deg, transparent, var(--glass-soft));
+      display:block;
+    }
+
+    .section-head{
+      display:flex;
+      align-items:end;
+      justify-content:space-between;
+      gap:30px;
+      margin-bottom:48px;
+    }
+
+    .section-head h2{
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2rem, 3vw, 3.2rem);
+      line-height:1.08;
+      letter-spacing:-0.02em;
+      max-width:760px;
+    }
+
+    .section-head p{
+      max-width:430px;
+      color:var(--muted);
+      font-size:1rem;
+    }
+
+    header{
+      position:fixed;
+      top:0;
+      left:0;
+      width:100%;
+      height:var(--header-h);
+      z-index:1000;
+      background:rgba(12,17,23,.72);
+      backdrop-filter:blur(18px);
+      border-bottom:1px solid rgba(255,255,255,.06);
+    }
+
+    .header-inner{
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:24px;
+    }
+
+    .logo{
+      display:flex;
+      flex-direction:column;
+      line-height:1;
+    }
+
+    .logo strong{
+      font-size:1.2rem;
+      letter-spacing:.20em;
+      font-weight:700;
+      color:var(--ice);
+    }
+
+    .logo span{
+      font-size:.68rem;
+      letter-spacing:.22em;
+      text-transform:uppercase;
+      color:var(--aluminum);
+      margin-top:8px;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      gap:26px;
+    }
+
+    nav a{
+      color:#cfd6dd;
+      font-size:.95rem;
+      transition:.25s ease;
+    }
+
+    nav a:hover{
+      color:var(--ice);
+    }
+
+    .nav-cta{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:13px 22px;
+      border-radius:999px;
+      background:linear-gradient(135deg, var(--glass), #84bfd4);
+      color:#081018;
+      font-weight:700;
+      box-shadow:0 10px 30px rgba(111,175,199,.22);
+    }
+
+    .hero{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      padding-top:var(--header-h);
+      position:relative;
+      overflow:hidden;
+      isolation:isolate;
+    }
+
+    .hero::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(90deg, rgba(10,15,20,.92) 0%, rgba(10,15,20,.75) 38%, rgba(10,15,20,.45) 60%, rgba(10,15,20,.68) 100%),
+        url('https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=80') center/cover;
+      z-index:-2;
+      transform:scale(1.02);
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:auto -10% -15% auto;
+      width:460px;
+      height:460px;
+      border-radius:50%;
+      background:radial-gradient(circle, rgba(111,175,199,.16), transparent 68%);
+      z-index:-1;
+      filter:blur(20px);
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:minmax(0, 1.2fr) minmax(320px, 420px);
+      gap:48px;
+      align-items:end;
+      width:100%;
+    }
+
+    .hero-copy{
+      padding:72px 0 48px;
+      max-width:760px;
+    }
+
+    .hero h1{
+      font-family:'Playfair Display', serif;
+      font-weight:700;
+      font-size:clamp(2.8rem, 6vw, 5.5rem);
+      line-height:.98;
+      letter-spacing:-0.04em;
+      margin-bottom:22px;
+      max-width:900px;
+    }
+
+    .hero p{
+      max-width:700px;
+      font-size:1.08rem;
+      color:#d4dbe2;
+      margin-bottom:34px;
+    }
+
+    .hero-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:42px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding:15px 26px;
+      border-radius:999px;
+      font-weight:700;
+      transition:.25s ease;
+      border:1px solid transparent;
+    }
+
+    .btn-primary{
+      background:linear-gradient(135deg, var(--glass), #8ec5d6);
+      color:#081018;
+      box-shadow:0 14px 36px rgba(111,175,199,.18);
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-2px);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,.03);
+      border-color:rgba(255,255,255,.14);
+      color:var(--ice);
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,.07);
+    }
+
+    .hero-points{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0, 1fr));
+      gap:18px;
+      max-width:760px;
+    }
+
+    .hero-points div{
+      padding-top:18px;
+      border-top:1px solid rgba(255,255,255,.14);
+    }
+
+    .hero-points strong{
+      display:block;
+      font-size:1.1rem;
+      color:var(--ice);
+      margin-bottom:6px;
+    }
+
+    .hero-points span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .hero-panel{
+      align-self:center;
+      background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.10);
+      border-radius:28px;
+      padding:30px;
+      box-shadow:var(--shadow);
+      backdrop-filter:blur(14px);
+      position:relative;
+      overflow:hidden;
+    }
+
+    .hero-panel::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(111,175,199,.12), transparent 45%);
+      pointer-events:none;
+    }
+
+    .panel-tag{
+      display:inline-flex;
+      padding:8px 12px;
+      border-radius:999px;
+      background:rgba(111,175,199,.12);
+      border:1px solid rgba(111,175,199,.24);
+      color:var(--glass-soft);
+      font-size:.78rem;
+      font-weight:600;
+      margin-bottom:18px;
+    }
+
+    .hero-panel h3{
+      font-size:1.25rem;
+      margin-bottom:10px;
+    }
+
+    .hero-panel p{
+      margin-bottom:22px;
+      color:var(--muted);
+      font-size:.96rem;
+    }
+
+    .spec-list{
+      display:grid;
+      gap:14px;
+    }
+
+    .spec-item{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      padding:14px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+
+    .spec-item:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .spec-item span{
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .spec-item strong{
+      color:var(--ice);
+      font-size:.96rem;
+      text-align:right;
+    }
+
+    .intro-strip{
+      margin-top:-42px;
+      position:relative;
+      z-index:2;
+    }
+
+    .intro-card{
+      background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:1.1fr .9fr .9fr .9fr;
+      gap:24px;
+      align-items:center;
+      backdrop-filter:blur(10px);
+    }
+
+    .intro-card p{
+      color:var(--muted);
+      max-width:420px;
+    }
+
+    .mini-stat{
+      border-left:1px solid rgba(255,255,255,.10);
+      padding-left:24px;
+    }
+
+    .mini-stat strong{
+      display:block;
+      font-size:1.5rem;
+      color:var(--ice);
+      margin-bottom:6px;
+    }
+
+    .mini-stat span{
+      color:var(--muted);
+      font-size:.92rem;
+    }
+
+    .grid-3{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:24px;
+    }
+
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:28px;
+      transition:.28s ease;
+      min-height:100%;
+    }
+
+    .card:hover{
+      transform:translateY(-6px);
+      border-color:rgba(111,175,199,.22);
+      box-shadow:0 20px 55px rgba(0,0,0,.22);
+    }
+
+    .card .index{
+      width:44px;
+      height:44px;
+      display:grid;
+      place-items:center;
+      border-radius:14px;
+      background:rgba(111,175,199,.10);
+      color:var(--glass-soft);
+      margin-bottom:18px;
+      font-weight:700;
+    }
+
+    .card h3{
+      font-size:1.2rem;
+      margin-bottom:10px;
+      color:var(--ice);
+    }
+
+    .card p{
+      color:var(--muted);
+      font-size:.97rem;
+    }
+
+    .solutions{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:24px;
+    }
+
+    .solution{
+      position:relative;
+      min-height:460px;
+      border-radius:28px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      display:flex;
+      align-items:end;
+      padding:26px;
+      box-shadow:var(--shadow);
+      isolation:isolate;
+    }
+
+    .solution::before{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(4,10,14,.84));
+      z-index:-1;
+    }
+
+    .solution::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background-size:cover;
+      background-position:center;
+      z-index:-2;
+      transform:scale(1.03);
+    }
+
+    .solution.s1::after{
+      background-image:url('https://images.unsplash.com/photo-1600607688969-a5bfcd646154?auto=format&fit=crop&w=1200&q=80');
+    }
+
+    .solution.s2::after{
+      background-image:url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1200&q=80');
+    }
+
+    .solution.s3::after{
+      background-image:url('https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1200&q=80');
+    }
+
+    .solution-content span{
+      display:inline-block;
+      margin-bottom:12px;
+      font-size:.78rem;
+      letter-spacing:.14em;
+      text-transform:uppercase;
+      color:#d9e7ed;
+    }
+
+    .solution-content h3{
+      font-size:1.4rem;
+      margin-bottom:10px;
+    }
+
+    .solution-content p{
+      color:#d6dde3;
+      max-width:320px;
+    }
+
+    .split{
+      display:grid;
+      grid-template-columns:1.08fr .92fr;
+      gap:34px;
+      align-items:center;
+    }
+
+    .media-block{
+      min-height:560px;
+      border-radius:30px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(10,15,20,.18), rgba(10,15,20,.28)),
+        url('https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1400&q=80') center/cover;
+      box-shadow:var(--shadow);
+      position:relative;
+    }
+
+    .media-badge{
+      position:absolute;
+      left:24px;
+      bottom:24px;
+      right:24px;
+      padding:18px 20px;
+      border-radius:20px;
+      background:rgba(9,14,19,.72);
+      border:1px solid rgba(255,255,255,.08);
+      backdrop-filter:blur(12px);
+    }
+
+    .media-badge strong{
+      display:block;
+      margin-bottom:6px;
+    }
+
+    .media-badge span{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .feature-stack{
+      display:grid;
+      gap:18px;
+    }
+
+    .feature-item{
+      padding:22px 24px;
+      border-radius:20px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.025));
+      border:1px solid rgba(255,255,255,.08);
+    }
+
+    .feature-item h3{
+      font-size:1.06rem;
+      margin-bottom:8px;
+    }
+
+    .feature-item p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .spec-grid{
+      display:grid;
+      grid-template-columns:repeat(2, minmax(0,1fr));
+      gap:20px;
+    }
+
+    .spec-card{
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:22px;
+      padding:24px;
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+    }
+
+    .spec-card h3{
+      margin-bottom:10px;
+      font-size:1.08rem;
+    }
+
+    .spec-card p{
+      color:var(--muted);
+      font-size:.95rem;
+    }
+
+    .compliance{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+    }
+
+    .compliance-panel{
+      border-radius:26px;
+      padding:30px;
+      border:1px solid rgba(255,255,255,.08);
+      background:
+        linear-gradient(180deg, rgba(111,175,199,.08), rgba(255,255,255,.03));
+    }
+
+    .compliance-panel h3{
+      font-size:1.35rem;
+      margin-bottom:14px;
+    }
+
+    .compliance-panel p{
+      color:var(--muted);
+      margin-bottom:22px;
+    }
+
+    .tick-list{
+      display:grid;
+      gap:12px;
+    }
+
+    .tick-list div{
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      color:#d9e0e6;
+    }
+
+    .tick-list div:last-child{
+      border-bottom:none;
+      padding-bottom:0;
+    }
+
+    .audience{
+      display:grid;
+      grid-template-columns:repeat(3, minmax(0,1fr));
+      gap:24px;
+    }
+
+    .audience-card{
+      padding:28px;
+      border-radius:24px;
+      border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+    }
+
+    .audience-card h3{
+      margin-bottom:10px;
+      font-size:1.15rem;
+    }
+
+    .audience-card p{
+      color:var(--muted);
+    }
+
+    .cta{
+      padding:0 0 110px;
+    }
+
+    .cta-box{
+      border-radius:32px;
+      padding:46px;
+      background:
+        linear-gradient(135deg, rgba(111,175,199,.12), rgba(255,255,255,.04)),
+        #10161d;
+      border:1px solid rgba(255,255,255,.10);
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:28px;
+      align-items:center;
+    }
+
+    .cta-box h2{
+      font-family:'Playfair Display', serif;
+      font-size:clamp(2rem, 3vw, 3rem);
+      line-height:1.06;
+      margin-bottom:12px;
+    }
+
+    .cta-box p{
+      color:var(--muted);
+      max-width:620px;
+    }
+
+    .cta-actions{
+      display:flex;
+      justify-content:flex-end;
+      gap:14px;
+      flex-wrap:wrap;
+    }
+
+    footer{
+      padding:32px 0 46px;
+      border-top:1px solid rgba(255,255,255,.06);
+      color:var(--muted);
+      font-size:.94rem;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+
+    .footer-brand{
+      color:#dce3e8;
+      font-weight:600;
+    }
+
+    @media (max-width: 1100px){
+      .hero-grid,
+      .split,
+      .cta-box,
+      .intro-card,
+      .compliance{
+        grid-template-columns:1fr;
+      }
+
+      .grid-3,
+      .solutions,
+      .audience{
+        grid-template-columns:1fr 1fr;
+      }
+
+      .hero-panel{
+        max-width:560px;
+      }
+
+      .cta-actions{
+        justify-content:flex-start;
+      }
+
+      .mini-stat{
+        border-left:none;
+        padding-left:0;
+        border-top:1px solid rgba(255,255,255,.10);
+        padding-top:18px;
+      }
+    }
+
+    @media (max-width: 780px){
+      :root{
+        --header-h:78px;
+      }
+
+      nav{
+        display:none;
+      }
+
+      .hero{
+        min-height:auto;
+        padding-bottom:70px;
+      }
+
+      .hero h1{
+        font-size:2.5rem;
+      }
+
+      .hero-points{
+        grid-template-columns:1fr;
+      }
+
+      .section{
+        padding:84px 0;
+      }
+
+      .section-head{
+        display:block;
+      }
+
+      .section-head p{
+        margin-top:16px;
+      }
+
+      .grid-3,
+      .solutions,
+      .audience,
+      .spec-grid{
+        grid-template-columns:1fr;
+      }
+
+      .solution{
+        min-height:360px;
+      }
+
+      .media-block{
+        min-height:420px;
+      }
+
+      .cta-box{
+        padding:32px 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="logo">SUPER VETRO</div>
-        <nav>
-            <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#diferenciais">Diferenciais</a>
-            <a href="#contato">Contato</a>
-        </nav>
-    </header>
 
-    <section id="inicio" class="hero">
-        <div class="hero-tags">
-            <span class="tag">Pele de Vidro</span>
-            <span class="tag">Esquadrias Minimalistas</span>
-            <span class="tag">Esquadrias Acústicas</span>
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="logo" aria-label="Super Vetro">
+        <strong>SUPER VETRO</strong>
+        <span>Alumínio • Vidro • Alto Padrão</span>
+      </a>
+
+      <nav>
+        <a href="#diferenciais">Diferenciais</a>
+        <a href="#solucoes">Soluções</a>
+        <a href="#tecnica">Técnica</a>
+        <a href="#atuacao">Atuação</a>
+        <a class="nav-cta" href="#contato">Solicitar orçamento</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Arquitetura • Engenharia • Performance</span>
+          <h1>Esquadrias de alumínio para projetos de alto padrão</h1>
+          <p>
+            Soluções que unem desenho minimalista, conforto acústico, precisão construtiva
+            e acabamento premium para residências, empreendimentos e projetos corporativos.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
+            <a href="#solucoes" class="btn btn-secondary">Conhecer soluções</a>
+          </div>
+
+          <div class="hero-points">
+            <div>
+              <strong>Desempenho técnico</strong>
+              <span>Vedação, estabilidade e acabamento pensados para obras exigentes.</span>
+            </div>
+            <div>
+              <strong>Fabricação sob medida</strong>
+              <span>Execução alinhada ao projeto, à estética e ao contexto da obra.</span>
+            </div>
+            <div>
+              <strong>Instalação especializada</strong>
+              <span>Mais controle de processo, melhor performance e confiança no resultado.</span>
+            </div>
+          </div>
         </div>
-        <h1>Qualidade Superior</h1>
-        <p class="hero-subtitle">Fornecimento, confecção e instalação de esquadrias de alumínio e soluções em vidro de alto padrão. Unindo estética minimalista à máxima performance técnica.</p>
-        <a href="https://wa.me/5571993976185?text=Olá! Gostaria de solicitar um orçamento." class="btn btn-whatsapp">Solicitar Orçamento</a>
-    </section>
 
-    <section id="servicos" class="container">
-        <h2>Nossos Serviços Especializados</h2>
-        <div class="grid-services">
-            <div class="card">
-                <div class="card-icon">🪟</div>
-                <div class="card-content">
-                    <h3>Pele de Vidro (Structural Glazing)</h3>
-                    <p>Fachadas modernas com sistema de fixação oculta, proporcionando acabamento limpo, sofisticado e maior luminosidade natural.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-icon">🔇</div>
-                <div class="card-content">
-                    <h3>Esquadrias Minimalistas e Acústicas</h3>
-                    <p>Perfis bi-tubulares (interno e externo) projetados para melhor isolamento sonoro e térmico, com design discreto que valoriza a arquitetura.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-icon">🛠️</div>
-                <div class="card-content">
-                    <h3>Recuperação de Vedação</h3>
-                    <p>Serviço técnico especializado na manutenção e estanqueidade de vãos, garantindo proteção total contra infiltrações.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-icon">🚿</div>
-                <div class="card-content">
-                    <h3>Boxes e Espelhos Personalizados</h3>
-                    <p>Soluções sob medida para banheiros e interiores, com acabamentos precisos e materiais de primeira linha.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+        <aside class="hero-panel" aria-label="Especificações em destaque">
+          <span class="panel-tag">Precisão em cada detalhe</span>
+          <h3>Especificações que elevam a experiência final</h3>
+          <p>
+            Materiais, vedação e componentes selecionados para traduzir desempenho,
+            durabilidade e sofisticação visual.
+          </p>
 
-    <section id="diferenciais" class="tech-specs container">
-        <h2>Diferenciais Técnicos e Garantias</h2>
-        <div class="specs-grid">
+          <div class="spec-list">
             <div class="spec-item">
-                <span class="spec-highlight">5 ANOS</span>
-                <strong>de garantia nos perfis de alumínio</strong>
-                <p>Conformidade com NBR 14698, 7199, 16259, 14718 e 16198</p>
-            </div>
-            <div class="spec-item">
-                <span class="spec-highlight">1 ANO</span>
-                <strong>em componentes e acessórios</strong>
-                <p>Parafusos Aço Inox 304, guarnições EPDM e silicone neutro</p>
+              <span>Fixação</span>
+              <strong>Aço inox 304</strong>
             </div>
             <div class="spec-item">
-                <span class="spec-highlight">🔒</span>
-                <strong>Segurança Máxima</strong>
-                <p>Fechos concha com trava automática e opções com chave</p>
+              <span>Vedação</span>
+              <strong>Guarnição EPDM</strong>
             </div>
-        </div>
-        <p style="margin-top: 30px; font-style: italic; color: #666;">
-            *Validade da garantia vinculada à manutenção preventiva anual
-        </p>
+            <div class="spec-item">
+              <span>Acabamento</span>
+              <strong>Silicone neutro</strong>
+            </div>
+            <div class="spec-item">
+              <span>Estrutura</span>
+              <strong>Perfis bi-tubulares</strong>
+            </div>
+            <div class="spec-item">
+              <span>Execução</span>
+              <strong>Confecção e instalação</strong>
+            </div>
+          </div>
+        </aside>
+      </div>
     </section>
 
-    <section id="contato" class="container">
-        <h2>Fale Conosco</h2>
-        <div class="contact-info">
-            <div class="contact-item">
-                <div class="contact-icon">📍</div>
-                <p><strong>Endereço</strong><br>
-                Alameda 02 - Três Mangueiras, nº 33<br>
-                Canabrava - Salvador/BA</p>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📞</div>
-                <p><strong>Telefone</strong><br>
-                (71) 99397-6185</p>
-            </div>
-            <div class="contact-item">
-                <div class="contact-icon">📧</div>
-                <p><strong>Email</strong><br>
-                supervetro.ssa@gmail.com</p>
-            </div>
+    <section class="intro-strip">
+      <div class="container">
+        <div class="intro-card">
+          <div>
+            <span class="eyebrow" style="margin-bottom:10px;">Posicionamento</span>
+            <p>
+              Uma linguagem visual limpa, técnica e sofisticada para comunicar alto padrão
+              sem perder clareza, funcionalidade e confiança.
+            </p>
+          </div>
+
+          <div class="mini-stat">
+            <strong>Minimalismo</strong>
+            <span>Linhas finas, leitura elegante e arquitetura em evidência.</span>
+          </div>
+
+          <div class="mini-stat">
+            <strong>Acústica</strong>
+            <span>Conforto e vedação como parte do valor percebido.</span>
+          </div>
+
+          <div class="mini-stat">
+            <strong>Durabilidade</strong>
+            <span>Materiais e componentes especificados com critério técnico.</span>
+          </div>
         </div>
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="https://wa.me/5571993976185?text=Olá! Gostaria de mais informações sobre seus serviços." class="btn btn-whatsapp" style="font-size: 1.3rem; padding: 20px 60px;">
-                Fale pelo WhatsApp
-            </a>
-        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 Super Vetro - Qualidade Superior em Vidros e Esquadrias | Salvador, BA</p>
-    </footer>
+    <section class="section" id="diferenciais">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Diferenciais</span>
+            <h2>Mais do que estética: desempenho, acabamento e presença arquitetônica</h2>
+          </div>
+          <p>
+            A proposta da marca fica mais forte quando o site mostra domínio técnico
+            e elegância visual ao mesmo tempo.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <article class="card">
+            <div class="index">01</div>
+            <h3>Desenho minimalista</h3>
+            <p>
+              Superfícies limpas, contraste sofisticado, muito respiro visual e um layout
+              com cara de arquitetura contemporânea.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="index">02</div>
+            <h3>Credibilidade técnica</h3>
+            <p>
+              O site passa a comunicar especificação, vedação, fixação, durabilidade
+              e conformidade com muito mais autoridade.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="index">03</div>
+            <h3>Alto padrão real</h3>
+            <p>
+              Menos “luxo decorativo” e mais linguagem de engenharia premium, com foco
+              em matéria, precisão e execução.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="solucoes">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Soluções</span>
+            <h2>Uma home pensada para apresentar linhas, sistemas e especialidades</h2>
+          </div>
+          <p>
+            Esta estrutura valoriza melhor o posicionamento institucional e facilita
+            a leitura de serviços e diferenciais.
+          </p>
+        </div>
+
+        <div class="solutions">
+          <article class="solution s1">
+            <div class="solution-content">
+              <span>Minimalistas</span>
+              <h3>Esquadrias com leitura limpa e sofisticada</h3>
+              <p>
+                Perfis elegantes, integração com a arquitetura e protagonismo para luz,
+                vidro e proporção.
+              </p>
+            </div>
+          </article>
+
+          <article class="solution s2">
+            <div class="solution-content">
+              <span>Acústicas</span>
+              <h3>Conforto e desempenho para ambientes exigentes</h3>
+              <p>
+                Soluções voltadas a vedação e bem-estar, valorizando silêncio, precisão
+                e sensação de proteção.
+              </p>
+            </div>
+          </article>
+
+          <article class="solution s3">
+            <div class="solution-content">
+              <span>Ripado de alumínio</span>
+              <h3>Textura, profundidade e acabamento arquitetônico</h3>
+              <p>
+                Elementos que reforçam identidade visual, contemporaneidade e riqueza
+                construtiva nos projetos.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="tecnica">
+      <div class="container split">
+        <div class="media-block">
+          <div class="media-badge">
+            <strong>Precisão construtiva aplicada ao design</strong>
+            <span>
+              Um layout mais alinhado ao universo do alumínio e do vidro pede contraste controlado,
+              volumes limpos e uma apresentação mais técnica.
+            </span>
+          </div>
+        </div>
+
+        <div>
+          <span class="eyebrow">Linguagem técnica</span>
+          <h2 style="font-family:'Playfair Display', serif; font-size:clamp(2rem, 3vw, 3.1rem); line-height:1.08; margin-bottom:18px;">
+            Conteúdo que vende pelo domínio do processo, não pelo excesso de texto
+          </h2>
+          <p style="color:var(--muted); margin-bottom:26px;">
+            Em vez de parecer uma proposta comercial adaptada, a homepage deve traduzir
+            a proposta em blocos institucionais, técnicos e visuais que reforcem a percepção
+            de marca premium.
+          </p>
+
+          <div class="feature-stack">
+            <div class="feature-item">
+              <h3>Fabricação sob medida</h3>
+              <p>Comunica cuidado com medida, projeto, compatibilização e acabamento final.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3>Instalação especializada</h3>
+              <p>Mostra que a performance depende não só do material, mas da execução correta.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3>Vedação e durabilidade</h3>
+              <p>Transforma informação técnica em argumento claro de valor para o cliente.</p>
+            </div>
+
+            <div class="feature-item">
+              <h3>Suporte e garantia</h3>
+              <p>Reforça confiança, pós-venda e leitura institucional mais madura.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Especificações</span>
+            <h2>Detalhes construtivos que merecem espaço nobre na interface</h2>
+          </div>
+          <p>
+            Esses blocos ajudam a transformar características técnicas em percepção
+            de qualidade e diferenciação.
+          </p>
+        </div>
+
+        <div class="spec-grid">
+          <article class="spec-card">
+            <h3>Aço inox 304</h3>
+            <p>
+              Fixação com leitura de robustez, resistência e longevidade para obras
+              com padrão elevado de exigência.
+            </p>
+          </article>
+
+          <article class="spec-card">
+            <h3>Guarnição EPDM</h3>
+            <p>
+              Vedação eficiente e contribuição direta para conforto acústico, estanqueidade
+              e melhor experiência de uso.
+            </p>
+          </article>
+
+          <article class="spec-card">
+            <h3>Silicone de cura neutra</h3>
+            <p>
+              Acabamento mais limpo, durável e compatível com uma estética refinada
+              e tecnicamente consistente.
+            </p>
+          </article>
+
+          <article class="spec-card">
+            <h3>Perfis bi-tubulares</h3>
+            <p>
+              Mais estabilidade estrutural, melhor rigidez e linguagem técnica mais
+              forte na apresentação institucional.
+            </p>
+          </article>
+
+          <article class="spec-card">
+            <h3>Contramarco e alisar</h3>
+            <p>
+              Uma forma elegante de mostrar arremate, acabamento e integração com a obra
+              sem poluir a navegação.
+            </p>
+          </article>
+
+          <article class="spec-card">
+            <h3>Fechos e componentes premium</h3>
+            <p>
+              Segurança, funcionalidade e qualidade percebida em cada ponto de contato
+              com o usuário final.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Garantias e conformidade</span>
+            <h2>Uma home premium também precisa deixar claro o compromisso técnico da marca</h2>
+          </div>
+          <p>
+            Garantia, manutenção preventiva e conformidade com normas são excelentes
+            gatilhos de confiança quando bem apresentados.
+          </p>
+        </div>
+
+        <div class="compliance">
+          <article class="compliance-panel">
+            <h3>Garantia e suporte</h3>
+            <p>
+              Use a homepage para traduzir segurança operacional e confiança pós-obra,
+              sem transformar a página em documento técnico pesado.
+            </p>
+
+            <div class="tick-list">
+              <div>Perfis de alumínio com garantia destacada</div>
+              <div>Componentes e acessórios com comunicação clara</div>
+              <div>Valorização de manutenção preventiva e longevidade</div>
+            </div>
+          </article>
+
+          <article class="compliance-panel">
+            <h3>Normas e responsabilidade técnica</h3>
+            <p>
+              A marca ganha mais autoridade quando mostra atenção à especificação,
+              desempenho e boas práticas construtivas.
+            </p>
+
+            <div class="tick-list">
+              <div>Conformidade com normas ABNT aplicáveis</div>
+              <div>Processo de fornecimento, confecção e instalação</div>
+              <div>Leitura institucional madura para arquitetos e construtoras</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="atuacao">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <span class="eyebrow">Atuação</span>
+            <h2>Uma apresentação mais estratégica para quem especifica, executa ou investe</h2>
+          </div>
+          <p>
+            A estrutura abaixo conversa melhor com diferentes perfis de cliente sem perder unidade.
+          </p>
+        </div>
+
+        <div class="audience">
+          <article class="audience-card">
+            <h3>Residências de alto padrão</h3>
+            <p>
+              Valorização estética, conforto, integração com a arquitetura e qualidade
+              percebida em cada detalhe.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <h3>Arquitetos e designers</h3>
+            <p>
+              Mais aderência ao conceito do projeto, leitura técnica e execução mais
+              alinhada à intenção estética.
+            </p>
+          </article>
+
+          <article class="audience-card">
+            <h3>Construtoras e incorporadoras</h3>
+            <p>
+              Padronização, clareza de especificação, confiabilidade e apresentação
+              institucional forte para obras exigentes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <div>
+            <span class="eyebrow">Contato</span>
+            <h2>Vamos transformar sua presença digital em uma vitrine do padrão da sua entrega</h2>
+            <p>
+              Um site como este posiciona a Super Vetro com mais força perante arquitetos,
+              clientes finais e parceiros de obra, sem parecer catálogo genérico ou proposta comercial.
+            </p>
+          </div>
+
+          <div class="cta-actions">
+            <a href="#" class="btn btn-primary">Solicitar orçamento</a>
+            <a href="#" class="btn btn-secondary">Falar com especialista</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-brand">SUPER VETRO — Esquadrias de alumínio para projetos de alto padrão</div>
+      <div>© 2026 Todos os direitos reservados.</div>
+    </div>
+  </footer>
+
 </body>
 </html>
