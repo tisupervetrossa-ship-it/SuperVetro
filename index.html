@@ -115,12 +115,6 @@
       max-width:760px;
     }
 
-    .section-head p{
-      max-width:430px;
-      color:var(--muted);
-      font-size:1rem;
-    }
-
     header{
       position:fixed;
       top:0;
@@ -165,29 +159,42 @@
     nav{
       display:flex;
       align-items:center;
-      gap:26px;
+      gap:12px;
     }
 
-    nav a{
-      color:#cfd6dd;
-      font-size:.95rem;
-      transition:.25s ease;
+    .nav-link {
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-size: .95rem;
+      font-weight: 500;
+      color: #cfd6dd;
+      border: 1px solid transparent;
+      transition: all .25s ease;
     }
 
-    nav a:hover{
-      color:var(--ice);
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.12);
+      color: var(--ice);
     }
 
     .nav-cta{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-      padding:13px 22px;
+      padding:10px 22px;
       border-radius:999px;
       background:linear-gradient(135deg, var(--glass), #84bfd4);
       color:#081018;
       font-weight:700;
+      font-size: .95rem;
       box-shadow:0 10px 30px rgba(111,175,199,.22);
+      margin-left: 14px;
+      transition: .25s ease;
+    }
+
+    .nav-cta:hover {
+        transform: translateY(-2px);
     }
 
     .hero{
@@ -242,15 +249,8 @@
       font-size:clamp(2.8rem, 6vw, 5.5rem);
       line-height:.98;
       letter-spacing:-0.04em;
-      margin-bottom:22px;
+      margin-bottom:42px;
       max-width:900px;
-    }
-
-    .hero p{
-      max-width:700px;
-      font-size:1.08rem;
-      color:#d4dbe2;
-      margin-bottom:34px;
     }
 
     .hero-actions{
@@ -291,30 +291,6 @@
       background:rgba(255,255,255,.07);
     }
 
-    .hero-points{
-      display:grid;
-      grid-template-columns:repeat(3, minmax(0, 1fr));
-      gap:18px;
-      max-width:760px;
-    }
-
-    .hero-points div{
-      padding-top:18px;
-      border-top:1px solid rgba(255,255,255,.14);
-    }
-
-    .hero-points strong{
-      display:block;
-      font-size:1.1rem;
-      color:var(--ice);
-      margin-bottom:6px;
-    }
-
-    .hero-points span{
-      color:var(--muted);
-      font-size:.95rem;
-    }
-
     .hero-panel{
       align-self:center;
       background:linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.03));
@@ -344,18 +320,7 @@
       color:var(--glass-soft);
       font-size:.78rem;
       font-weight:600;
-      margin-bottom:18px;
-    }
-
-    .hero-panel h3{
-      font-size:1.25rem;
-      margin-bottom:10px;
-    }
-
-    .hero-panel p{
-      margin-bottom:22px;
-      color:var(--muted);
-      font-size:.96rem;
+      margin-bottom:26px;
     }
 
     .spec-list{
@@ -745,6 +710,41 @@
       font-weight:600;
     }
 
+    /* --- WHATSAPP BUTTON --- */
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(37, 211, 102, 0.15);
+      border: 1px solid rgba(37, 211, 102, 0.4);
+      backdrop-filter: blur(12px);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      z-index: 1000;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .whatsapp-btn:hover {
+      background: rgba(37, 211, 102, 0.25);
+      border-color: rgba(37, 211, 102, 0.7);
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(37, 211, 102, 0.2);
+    }
+
+    .whatsapp-btn svg {
+      width: 24px;
+      height: 24px;
+      fill: #25D366;
+    }
+
     @media (max-width: 1100px){
       .hero-grid,
       .split,
@@ -794,20 +794,12 @@
         font-size:2.5rem;
       }
 
-      .hero-points{
-        grid-template-columns:1fr;
-      }
-
       .section{
         padding:84px 0;
       }
 
       .section-head{
         display:block;
-      }
-
-      .section-head p{
-        margin-top:16px;
       }
 
       .grid-3,
@@ -828,10 +820,25 @@
       .cta-box{
         padding:32px 24px;
       }
+
+      .whatsapp-btn {
+        bottom: 20px;
+        right: 20px;
+        padding: 12px;
+      }
+      
+      .whatsapp-btn span {
+        display: none; 
+      }
     }
   </style>
 </head>
 <body>
+
+  <a href="https://wa.me/5571993976185?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20esquadrias%20de%20alto%20padrão." class="whatsapp-btn" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.94 3.659 1.437 5.63 1.438h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    <span>Fale no WhatsApp</span>
+  </a>
 
   <header>
     <div class="container header-inner">
@@ -841,10 +848,10 @@
       </a>
 
       <nav>
-        <a href="#diferenciais">Diferenciais</a>
-        <a href="#solucoes">Soluções</a>
-        <a href="#tecnica">Técnica</a>
-        <a href="#atuacao">Atuação</a>
+        <a href="#diferenciais" class="nav-link">Diferenciais</a>
+        <a href="#solucoes" class="nav-link">Soluções</a>
+        <a href="#tecnica" class="nav-link">Técnica</a>
+        <a href="#atuacao" class="nav-link">Atuação</a>
         <a class="nav-cta" href="#contato">Solicitar orçamento</a>
       </nav>
     </div>
@@ -856,39 +863,15 @@
         <div class="hero-copy">
           <span class="eyebrow">Arquitetura • Engenharia • Performance</span>
           <h1>Esquadrias de alumínio para projetos de alto padrão</h1>
-          <p>
-            Soluções que unem desenho minimalista, conforto acústico, precisão construtiva
-            e acabamento premium para residências, empreendimentos e projetos corporativos.
-          </p>
 
           <div class="hero-actions">
             <a href="#contato" class="btn btn-primary">Solicitar orçamento</a>
             <a href="#solucoes" class="btn btn-secondary">Conhecer soluções</a>
           </div>
-
-          <div class="hero-points">
-            <div>
-              <strong>Desempenho técnico</strong>
-              <span>Vedação, estabilidade e acabamento pensados para obras exigentes.</span>
-            </div>
-            <div>
-              <strong>Fabricação sob medida</strong>
-              <span>Execução alinhada ao projeto, à estética e ao contexto da obra.</span>
-            </div>
-            <div>
-              <strong>Instalação especializada</strong>
-              <span>Mais controle de processo, melhor performance e confiança no resultado.</span>
-            </div>
-          </div>
         </div>
 
         <aside class="hero-panel" aria-label="Especificações em destaque">
           <span class="panel-tag">Precisão em cada detalhe</span>
-          <h3>Especificações que elevam a experiência final</h3>
-          <p>
-            Materiais, vedação e componentes selecionados para traduzir desempenho,
-            durabilidade e sofisticação visual.
-          </p>
 
           <div class="spec-list">
             <div class="spec-item">
@@ -920,10 +903,9 @@
       <div class="container">
         <div class="intro-card">
           <div>
-            <span class="eyebrow" style="margin-bottom:10px;">Posicionamento</span>
+            <span class="eyebrow" style="margin-bottom:10px;">Compromisso</span>
             <p>
-              Uma linguagem visual limpa, técnica e sofisticada para comunicar alto padrão
-              sem perder clareza, funcionalidade e confiança.
+              Engenharia de precisão e design minimalista, entregando esquadrias de alto padrão com excelência, clareza e funcionalidade para o seu projeto.
             </p>
           </div>
 
@@ -934,12 +916,12 @@
 
           <div class="mini-stat">
             <strong>Acústica</strong>
-            <span>Conforto e vedação como parte do valor percebido.</span>
+            <span>Conforto e vedação como parte fundamental do valor entregue.</span>
           </div>
 
           <div class="mini-stat">
             <strong>Durabilidade</strong>
-            <span>Materiais e componentes especificados com critério técnico.</span>
+            <span>Materiais e componentes especificados com absoluto critério técnico.</span>
           </div>
         </div>
       </div>
@@ -950,39 +932,32 @@
         <div class="section-head">
           <div>
             <span class="eyebrow">Diferenciais</span>
-            <h2>Mais do que estética: desempenho, acabamento e presença arquitetônica</h2>
+            <h2>Desempenho rigoroso, acabamento impecável e forte presença arquitetônica</h2>
           </div>
-          <p>
-            A proposta da marca fica mais forte quando o site mostra domínio técnico
-            e elegância visual ao mesmo tempo.
-          </p>
         </div>
 
         <div class="grid-3">
           <article class="card">
             <div class="index">01</div>
-            <h3>Desenho minimalista</h3>
+            <h3>Design minimalista</h3>
             <p>
-              Superfícies limpas, contraste sofisticado, muito respiro visual e um layout
-              com cara de arquitetura contemporânea.
+              Perfis ultrafinos, superfícies limpas e máxima integração visual, desenvolvidos perfeitamente para a arquitetura contemporânea e entrada de luz natural.
             </p>
           </article>
 
           <article class="card">
             <div class="index">02</div>
-            <h3>Credibilidade técnica</h3>
+            <h3>Rigor técnico</h3>
             <p>
-              O site passa a comunicar especificação, vedação, fixação, durabilidade
-              e conformidade com muito mais autoridade.
+              Foco absoluto na correta especificação, vedação termoacústica e fixação segura, garantindo durabilidade prolongada e total conformidade com as normas.
             </p>
           </article>
 
           <article class="card">
             <div class="index">03</div>
-            <h3>Alto padrão real</h3>
+            <h3>Engenharia premium</h3>
             <p>
-              Menos “luxo decorativo” e mais linguagem de engenharia premium, com foco
-              em matéria, precisão e execução.
+              Focamos em matéria-prima de ponta, precisão milimétrica na confecção e execução de alto nível, descartando atalhos construtivos.
             </p>
           </article>
         </div>
@@ -994,12 +969,8 @@
         <div class="section-head">
           <div>
             <span class="eyebrow">Soluções</span>
-            <h2>Uma home pensada para apresentar linhas, sistemas e especialidades</h2>
+            <h2>Sistemas desenvolvidos para as mais altas exigências construtivas</h2>
           </div>
-          <p>
-            Esta estrutura valoriza melhor o posicionamento institucional e facilita
-            a leitura de serviços e diferenciais.
-          </p>
         </div>
 
         <div class="solutions">
@@ -1008,8 +979,7 @@
               <span>Minimalistas</span>
               <h3>Esquadrias com leitura limpa e sofisticada</h3>
               <p>
-                Perfis elegantes, integração com a arquitetura e protagonismo para luz,
-                vidro e proporção.
+                Perfis elegantes, integração com a arquitetura e protagonismo absoluto para luz natural, grandes panos de vidro e proporção.
               </p>
             </div>
           </article>
@@ -1019,8 +989,7 @@
               <span>Acústicas</span>
               <h3>Conforto e desempenho para ambientes exigentes</h3>
               <p>
-                Soluções voltadas a vedação e bem-estar, valorizando silêncio, precisão
-                e sensação de proteção.
+                Soluções voltadas a vedação e bem-estar, valorizando o silêncio, a precisão construtiva e a sensação de total proteção interna.
               </p>
             </div>
           </article>
@@ -1030,8 +999,7 @@
               <span>Ripado de alumínio</span>
               <h3>Textura, profundidade e acabamento arquitetônico</h3>
               <p>
-                Elementos que reforçam identidade visual, contemporaneidade e riqueza
-                construtiva nos projetos.
+                Elementos de fachada que reforçam identidade visual, contemporaneidade e riqueza construtiva nos projetos mais exclusivos.
               </p>
             </div>
           </article>
@@ -1045,42 +1013,36 @@
           <div class="media-badge">
             <strong>Precisão construtiva aplicada ao design</strong>
             <span>
-              Um layout mais alinhado ao universo do alumínio e do vidro pede contraste controlado,
-              volumes limpos e uma apresentação mais técnica.
+              O alto padrão exige volumes limpos, usinagem perfeita, acabamentos precisos e um processo de instalação conduzido por especialistas.
             </span>
           </div>
         </div>
 
         <div>
-          <span class="eyebrow">Linguagem técnica</span>
+          <span class="eyebrow">Metodologia Exclusiva</span>
           <h2 style="font-family:'Playfair Display', serif; font-size:clamp(2rem, 3vw, 3.1rem); line-height:1.08; margin-bottom:18px;">
-            Conteúdo que vende pelo domínio do processo, não pelo excesso de texto
+            A excelência construída através do domínio de cada etapa do processo
           </h2>
-          <p style="color:var(--muted); margin-bottom:26px;">
-            Em vez de parecer uma proposta comercial adaptada, a homepage deve traduzir
-            a proposta em blocos institucionais, técnicos e visuais que reforcem a percepção
-            de marca premium.
-          </p>
 
           <div class="feature-stack">
             <div class="feature-item">
               <h3>Fabricação sob medida</h3>
-              <p>Comunica cuidado com medida, projeto, compatibilização e acabamento final.</p>
+              <p>Equipe dedicada a projetos complexos, cuidando da compatibilização e da perfeição na usinagem.</p>
             </div>
 
             <div class="feature-item">
               <h3>Instalação especializada</h3>
-              <p>Mostra que a performance depende não só do material, mas da execução correta.</p>
+              <p>Performance garantida por equipes próprias, treinadas para executar o prumo e a fixação ideais.</p>
             </div>
 
             <div class="feature-item">
               <h3>Vedação e durabilidade</h3>
-              <p>Transforma informação técnica em argumento claro de valor para o cliente.</p>
+              <p>Sistemas integrados de borrachas, escovas e silicones estruturais que barram água, vento e ruído.</p>
             </div>
 
             <div class="feature-item">
-              <h3>Suporte e garantia</h3>
-              <p>Reforça confiança, pós-venda e leitura institucional mais madura.</p>
+              <h3>Suporte e pós-venda</h3>
+              <p>Presença ativa mesmo após a entrega da obra, garantindo longevidade e funcionamento suave dos sistemas.</p>
             </div>
           </div>
         </div>
@@ -1091,61 +1053,51 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Especificações</span>
-            <h2>Detalhes construtivos que merecem espaço nobre na interface</h2>
+            <span class="eyebrow">Especificações de Base</span>
+            <h2>Detalhes construtivos que garantem longevidade e segurança</h2>
           </div>
-          <p>
-            Esses blocos ajudam a transformar características técnicas em percepção
-            de qualidade e diferenciação.
-          </p>
         </div>
 
         <div class="spec-grid">
           <article class="spec-card">
             <h3>Aço inox 304</h3>
             <p>
-              Fixação com leitura de robustez, resistência e longevidade para obras
-              com padrão elevado de exigência.
+              Fixação robusta e parafusos com alta resistência à oxidação, projetados para garantir longevidade em obras litorâneas ou urbanas.
             </p>
           </article>
 
           <article class="spec-card">
             <h3>Guarnição EPDM</h3>
             <p>
-              Vedação eficiente e contribuição direta para conforto acústico, estanqueidade
-              e melhor experiência de uso.
+              Vedação de alta eficiência que não resseca ao sol, contribuindo diretamente para o conforto acústico e estanqueidade contra chuvas fortes.
             </p>
           </article>
 
           <article class="spec-card">
             <h3>Silicone de cura neutra</h3>
             <p>
-              Acabamento mais limpo, durável e compatível com uma estética refinada
-              e tecnicamente consistente.
+              Selante estrutural aplicado com precisão, garantindo um arremate limpo, durável e que não agride o vidro ou as pinturas do alumínio.
             </p>
           </article>
 
           <article class="spec-card">
             <h3>Perfis bi-tubulares</h3>
             <p>
-              Mais estabilidade estrutural, melhor rigidez e linguagem técnica mais
-              forte na apresentação institucional.
+              Matrizes de alumínio com câmaras internas que conferem maior inércia, estabilidade estrutural e resistência à pressão dos ventos.
             </p>
           </article>
 
           <article class="spec-card">
-            <h3>Contramarco e alisar</h3>
+            <h3>Contramarco inteligente</h3>
             <p>
-              Uma forma elegante de mostrar arremate, acabamento e integração com a obra
-              sem poluir a navegação.
+              Instalação limpa com nivelamento perfeito, permitindo que a esquadria seja encaixada perfeitamente ao final da obra, sem sujeira.
             </p>
           </article>
 
           <article class="spec-card">
-            <h3>Fechos e componentes premium</h3>
+            <h3>Fechos e roldanas premium</h3>
             <p>
-              Segurança, funcionalidade e qualidade percebida em cada ponto de contato
-              com o usuário final.
+              Deslizamento suave em peças de grande porte e travamento seguro, garantindo excelente usabilidade para o cliente final.
             </p>
           </article>
         </div>
@@ -1156,41 +1108,35 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Garantias e conformidade</span>
-            <h2>Uma home premium também precisa deixar claro o compromisso técnico da marca</h2>
+            <span class="eyebrow">Normativas e Segurança</span>
+            <h2>Compromisso inegociável com normas técnicas e garantias estendidas</h2>
           </div>
-          <p>
-            Garantia, manutenção preventiva e conformidade com normas são excelentes
-            gatilhos de confiança quando bem apresentados.
-          </p>
         </div>
 
         <div class="compliance">
           <article class="compliance-panel">
-            <h3>Garantia e suporte</h3>
+            <h3>Garantia e Suporte Técnico</h3>
             <p>
-              Use a homepage para traduzir segurança operacional e confiança pós-obra,
-              sem transformar a página em documento técnico pesado.
+              Oferecemos garantias sólidas e um suporte técnico especializado para manter a integridade estética e mecânica dos seus sistemas ao longo dos anos.
             </p>
 
             <div class="tick-list">
-              <div>Perfis de alumínio com garantia destacada</div>
-              <div>Componentes e acessórios com comunicação clara</div>
-              <div>Valorização de manutenção preventiva e longevidade</div>
+              <div>Cobertura integral para integridade dos perfis e pinturas</div>
+              <div>Garantia estrutural de vedação e funcionamento</div>
+              <div>Plano de orientação para limpeza e manutenção preventiva</div>
             </div>
           </article>
 
           <article class="compliance-panel">
-            <h3>Normas e responsabilidade técnica</h3>
+            <h3>Normas e Responsabilidade</h3>
             <p>
-              A marca ganha mais autoridade quando mostra atenção à especificação,
-              desempenho e boas práticas construtivas.
+              Atuamos em estrita conformidade com as exigências técnicas nacionais, entregando laudos e soluções seguras para projetos de grande envergadura.
             </p>
 
             <div class="tick-list">
-              <div>Conformidade com normas ABNT aplicáveis</div>
-              <div>Processo de fornecimento, confecção e instalação</div>
-              <div>Leitura institucional madura para arquitetos e construtoras</div>
+              <div>Cálculos estruturais alinhados à NBR 10821 (Desempenho)</div>
+              <div>Vidros especificados conforme a NBR 7199 (Segurança)</div>
+              <div>Equipe técnica liderada por engenheiros responsáveis (ART)</div>
             </div>
           </article>
         </div>
@@ -1201,36 +1147,30 @@
       <div class="container">
         <div class="section-head">
           <div>
-            <span class="eyebrow">Atuação</span>
-            <h2>Uma apresentação mais estratégica para quem especifica, executa ou investe</h2>
+            <span class="eyebrow">Nossos Clientes</span>
+            <h2>Soluções personalizadas para quem especifica, executa ou investe</h2>
           </div>
-          <p>
-            A estrutura abaixo conversa melhor com diferentes perfis de cliente sem perder unidade.
-          </p>
         </div>
 
         <div class="audience">
           <article class="audience-card">
-            <h3>Residências de alto padrão</h3>
+            <h3>Proprietários e Investidores</h3>
             <p>
-              Valorização estética, conforto, integração com a arquitetura e qualidade
-              percebida em cada detalhe.
+              Foco no conforto diário, valorização patrimonial do imóvel, estética deslumbrante e total segurança térmica e acústica para a família.
             </p>
           </article>
 
           <article class="audience-card">
-            <h3>Arquitetos e designers</h3>
+            <h3>Arquitetos e Designers</h3>
             <p>
-              Mais aderência ao conceito do projeto, leitura técnica e execução mais
-              alinhada à intenção estética.
+              Liberdade criativa com perfis sutis, consultoria para viabilidade técnica de grandes vãos e máxima fidelidade ao conceito original do projeto.
             </p>
           </article>
 
           <article class="audience-card">
-            <h3>Construtoras e incorporadoras</h3>
+            <h3>Construtoras de Alto Padrão</h3>
             <p>
-              Padronização, clareza de especificação, confiabilidade e apresentação
-              institucional forte para obras exigentes.
+              Cronograma confiável, padronização de qualidade, equipe autônoma na obra e gestão de riscos estruturais reduzida a zero.
             </p>
           </article>
         </div>
@@ -1241,17 +1181,15 @@
       <div class="container">
         <div class="cta-box">
           <div>
-            <span class="eyebrow">Contato</span>
-            <h2>Vamos transformar sua presença digital em uma vitrine do padrão da sua entrega</h2>
+            <span class="eyebrow">Contato Estratégico</span>
+            <h2>Traga seu projeto para a Super Vetro e garanta uma execução impecável</h2>
             <p>
-              Um site como este posiciona a Super Vetro com mais força perante arquitetos,
-              clientes finais e parceiros de obra, sem parecer catálogo genérico ou proposta comercial.
+              Fale com nossos especialistas em engenharia de esquadrias, apresente suas plantas e descubra como nossas soluções podem materializar e proteger a sua obra.
             </p>
           </div>
 
           <div class="cta-actions">
-            <a href="#" class="btn btn-primary">Solicitar orçamento</a>
-            <a href="#" class="btn btn-secondary">Falar com especialista</a>
+            <a href="https://wa.me/5571993976185?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20as%20esquadrias%20de%20alto%20padrão." target="_blank" class="btn btn-primary">Solicitar orçamento</a>
           </div>
         </div>
       </div>
